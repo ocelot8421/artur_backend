@@ -1,6 +1,7 @@
 package com.example.learnspringboot.courses.controller;
 
 import com.example.learnspringboot.courses.bean.Course;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,12 @@ public class CourseController {
     //http://localhost:8080/courses/1
     @GetMapping("courses/1")
     public Course getCourseDetails(){
-        return courseList.get(0);
+        return new Course(1, "Learn Microservices 1", "in28minutes");
+    }
+
+    @GetMapping("/ping")
+    ResponseEntity<String> ping(){
+        return ResponseEntity.ok("All is well");
     }
 
 }
