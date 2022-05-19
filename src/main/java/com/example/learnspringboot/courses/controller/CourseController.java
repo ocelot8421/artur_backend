@@ -8,10 +8,19 @@ import java.util.List;
 
 @RestController
 public class CourseController {
+    List<Course> courseList = List.of(new Course(1, "Learn Microservices", "in28minutes"),
+            new Course(2, "Learn Full Stack with Angular and React", "in28minutes"));
 
+    // http://localhost:8080/courses
     @GetMapping("/courses")
     public List<Course> getAllCourses(){
-        return List.of(new Course(1, "Learn Microservices", "in28minutes"));
+        return courseList;
+    }
+
+    //http://localhost:8080/courses/1
+    @GetMapping("courses/1")
+    public Course getCourseDetails(){
+        return courseList.get(0);
     }
 
 }
