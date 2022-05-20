@@ -26,7 +26,7 @@ public class CourseController {
 
     @GetMapping("/ping")
     ResponseEntity<String> ping(){
-        return ResponseEntity.ok("All is well");
+        return ResponseEntity.ok("All is well!!!!");
     }
 
 }
