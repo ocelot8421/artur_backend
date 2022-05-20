@@ -4,7 +4,8 @@ in28minutes.com, 2021.04.14
 content:
 spring-boot-starter-web
 spring-boot-starter-actuator
-spring-boot-devtools (in progress) -- 46:20
+spring-boot-devtools
+...
 
 https://www.youtube.com/watch?v=BvIM9gNTDM4
 Autoreloading with Spring Boot Devtools in IntelliJ
