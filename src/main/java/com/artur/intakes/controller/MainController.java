@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@Controller //>>3.
-//@RestController //>>1. or 2.
 @RequestMapping(path = "/users") //>>3.
 public class MainController { //3.:
 

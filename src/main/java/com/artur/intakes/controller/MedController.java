@@ -5,15 +5,17 @@ import com.artur.intakes.repositories.IntakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping(path = "/intakes")
 public class MedController {
 
     @Autowired
     private IntakeRepository intakeRepository;
 
-    @PostMapping(path = "/addIntake")
+//    http://localhost:8080/intakes/add
+    @PostMapping(path = "/add")
     public @ResponseBody String addNewIntake(
             @RequestParam String time){
         MedicationIntake intake = new MedicationIntake();
@@ -22,46 +24,26 @@ public class MedController {
         return "new medication intake saved";
     }
 
-//    List<MedicationIntake> intakeList = List.of(
-//            new MedicationIntake(
-//                    1L, "2022.06.10., 8:00",
-//                    "L", 0,
-//                    "R", 0,
-//                    "A", 0
-//            ),
-//            new MedicationIntake(
-//                    2L, "2022.06.10., 20:00",
-//                    "L", 200,
-//                    "R", 1,
-//                    "A", 100
-//                    ),
-//            new MedicationIntake(
-//                    3L, "2022.06.10., 20:00",
-//                    "L", 200,
-//                    "R", 1,
-//                    "A", 0
-//            )
-//    );
-
-    // http://localhost:8080/allIntakes
+    //    http://localhost:8080/intakes/allIntakes
     @GetMapping("/allIntakes")
     @CrossOrigin //>>5.
-//    public List<MedicationIntake> getAllCourses(){
-//        return intakeList;
-//    }
     public @ResponseBody Iterable<MedicationIntake> getAllIntakes(){
         return intakeRepository.findAll();
     }
 
-//     http://localhost:8080/allIntakes/1
-    @GetMapping("allIntakes/1")
+//     http://localhost:8080/intakes/{id}
+    @GetMapping("/{id}")
     @CrossOrigin //>>5.
-    public MedicationIntake getCourseDetails(){
-       return new MedicationIntake(
-                1L, "2022.06.10., 20:00",
-                "L", 200,
-                "R", 1,
-                "A", 100
-        );
+    public @ResponseBody
+    Optional<MedicationIntake> getIntakeId(@PathVariable Long id){
+       return intakeRepository.findById(id);
+    }
+
+    //     http://localhost:8080/intakes/{id}
+    @DeleteMapping("/{id}")
+    @CrossOrigin //>>5.
+    public @ResponseBody Iterable<MedicationIntake> deleteIntakeId(@PathVariable("id") Long id){
+       intakeRepository.deleteById(id);
+       return intakeRepository.findAll();
     }
 }
