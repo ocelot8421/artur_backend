@@ -21,3 +21,15 @@ E:\Training360 - 697 tanfolyam\01. java\28 Spring - Adatbáziskezelés\2. Spring
 
 >>5.
 https://spring.io/guides/gs/rest-service-cors/
+
+>>6.
+https://howtodoinjava.com/spring5/webmvc/controller-getmapping-postmapping/
+
+>>7.
+E:\Training360 - 697 tanfolyam\01. java\29 Spring - webalkalmazás fejlesztés\2. Spring Framework webalkalmazás fejlesztés\6. 10769403-hozzaadas-es-szerkesztes Video
+
+>>8.
+https://projectlombok.org/features/Data
+
+>>9.
+https://spring.io/guides/tutorials/rest/
