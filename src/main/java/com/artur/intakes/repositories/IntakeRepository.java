@@ -2,7 +2,6 @@ package com.artur.intakes.repositories;
 
 import com.artur.intakes.model.MedicationIntake;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository //>>3.

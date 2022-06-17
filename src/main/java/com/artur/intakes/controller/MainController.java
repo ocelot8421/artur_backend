@@ -3,13 +3,11 @@ package com.artur.intakes.controller;
 import com.artur.intakes.model.User;
 import com.artur.intakes.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@Controller //>>3.
-@RequestMapping(path = "/users") //>>3.
-public class MainController { //3.:
+@RequestMapping(path = "/users")
+public class MainController {
 
     @Autowired
     private UserRepository userRepository;

@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity //>>3.
+@Entity
 @Data //>>8.
 public class MedicationIntake {
 
@@ -15,6 +15,7 @@ public class MedicationIntake {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String time;
+    private String day;
     private String medicine01;
     private double dose01;
     private String medicine02;
