@@ -1,7 +1,8 @@
-package com.artur.learnspringboot;
+package com.artur.intakes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootTest
 class MediMainTests {
@@ -9,5 +10,6 @@ class MediMainTests {
 	@Test
 	void contextLoads() {
 	}
+
 
 }
