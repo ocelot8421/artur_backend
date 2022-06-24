@@ -14,12 +14,15 @@ public class MedicationIntake {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String month;
     private String time;
     private String day;
     private String medicine01;
+    private double pieces01;
     private double dose01;
     private String medicine02;
     private double dose02;
+    private double pieces02;
     private String medicine03;
     private double dose03;
 
