@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter //1., car-dealership
+@Getter
 @NoArgsConstructor
 public class MedicationIntakeDto {
 
@@ -20,8 +20,7 @@ public class MedicationIntakeDto {
     private String medicine02;
     private double dose02;
     private double pieces02;
-//    private String medicine03;
-//    private double dose03;
+
 
     public MedicationIntakeDto(MedicationIntake medicationIntake) {
         id = medicationIntake.getId();
