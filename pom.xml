@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>learn-spring-boot</artifactId>
+	<artifactId>artur-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>learn-spring-boot</name>
+	<name>artur-backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -38,4 +38,19 @@ public class MedicationIntakeDto {
 //        dose03 = medicationIntake.getDose03();
     }
 
+    @Override
+    public String toString() {
+        return "MedicationIntakeDto{" +
+                "id=" + id +
+                ", month='" + month + '\'' +
+                ", time='" + time + '\'' +
+                ", day='" + day + '\'' +
+                ", medicine01='" + medicine01 + '\'' +
+                ", pieces01=" + pieces01 +
+                ", dose01=" + dose01 +
+                ", medicine02='" + medicine02 + '\'' +
+                ", dose02=" + dose02 +
+                ", pieces02=" + pieces02 +
+                '}';
+    }
 }
