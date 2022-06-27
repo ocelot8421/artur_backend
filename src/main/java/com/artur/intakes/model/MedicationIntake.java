@@ -1,6 +1,8 @@
 package com.artur.intakes.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data //>>8.
+@Data
+@NoArgsConstructor
+@AllArgsConstructor//>>8.
 public class MedicationIntake {
 
     @Id
