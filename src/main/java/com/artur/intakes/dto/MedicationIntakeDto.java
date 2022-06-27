@@ -1,10 +1,8 @@
 package com.artur.intakes.dto;
 
 import com.artur.intakes.model.MedicationIntake;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @NoArgsConstructor
@@ -30,11 +28,9 @@ public class MedicationIntakeDto {
         medicine01 = medicationIntake.getMedicine01();
         pieces01 = medicationIntake.getPieces01();
         dose01 = medicationIntake.getDose01();
-//        medicine02 = medicationIntake.getMedicine02();
-//        dose02 = medicationIntake.getDose02();
-//        pieces02 = medicationIntake.getPieces02();
-//        medicine03 = medicationIntake.getMedicine03();
-//        dose03 = medicationIntake.getDose03();
+        medicine02 = medicationIntake.getMedicine02();
+        dose02 = medicationIntake.getDose02();
+        pieces02 = medicationIntake.getPieces02();
     }
 
     @Override
