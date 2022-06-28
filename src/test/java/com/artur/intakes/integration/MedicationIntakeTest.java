@@ -40,7 +40,6 @@ public class MedicationIntakeTest {
         this.baseUrl = "http://localhost:" + port + "/intakes";
     }
 
-
     @Test
     public void retrieveAllIntakes_returnTheBasicWeek() {
         MedicationIntakeDto[] mondayToSunDay = testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class);
