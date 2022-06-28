@@ -1,6 +1,7 @@
 package com.artur.intakes.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,11 +13,12 @@ import javax.persistence.Id;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor//>>8.
+@AllArgsConstructor
+@Builder
 public class MedicationIntake {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String month;
     private String time;
@@ -30,5 +32,4 @@ public class MedicationIntake {
     private String medicine03;
     private double dose03;
 
-    //>>8. @Data instead of getter-setter and toString method
 }

@@ -1,0 +1,1 @@
+DELETE FROM `db_intakes_diary`.`medication_intake` WHERE (`id` > 7);
