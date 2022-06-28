@@ -2,11 +2,12 @@ package com.artur.intakes.controller;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.model.MedicationIntake;
-import com.artur.intakes.repositories.MedicationIntakeRepository;
 import com.artur.intakes.service.MedicationIntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Locale;
 
 @RestController
 @RequestMapping(path = "/intakes")
@@ -14,10 +15,6 @@ public class MedicationIntakeController {
 
     @Autowired
     private MedicationIntakeService medicationIntakeService;
-
-    public MedicationIntakeController(MedicationIntakeService medicationIntakeService) {
-        this.medicationIntakeService = medicationIntakeService;
-    }
 
     //    http://localhost:8080/intakes/allIntakes
     @GetMapping("/allIntakes")
@@ -58,8 +55,8 @@ public class MedicationIntakeController {
 
     //     http://localhost:8080/intakes/del/{id}
     @DeleteMapping(path = "/del/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            headers = "Accept=application/json")
     @CrossOrigin
     public @ResponseBody
     Iterable<MedicationIntakeDto> deleteIntakeId(@PathVariable("id") Long id) {

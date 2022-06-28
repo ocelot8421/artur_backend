@@ -10,9 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -33,6 +38,13 @@ public class MedicationIntakeTest {
     @BeforeEach
     public void setUrl() {
         this.baseUrl = "http://localhost:" + port + "/intakes";
+    }
+
+
+    @Test
+    public void retrieveAllIntakes_returnTheBasicWeek() {
+        MedicationIntakeDto[] mondayToSunDay = testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class);
+        assertEquals(7, mondayToSunDay.length);
     }
 
 
@@ -74,10 +86,40 @@ public class MedicationIntakeTest {
     }
 
 
-//    @Test
-//    @Order(3)
-//    public void deleteIntakeById_returnIntakeWithTheSameMedication() {
-//
-//    }
+    @Test
+    public void deleteIntakeById_returnListWithRemainingIntakes() {
+        MedicationIntake testIntake10 = new MedicationIntake(
+                10L, "test month", "test day of month", "Monday",
+                "med 10", 0.10, 100,
+                "med 10", 10, 0.1010,
+                "something", 10);
+        MedicationIntake testIntake11 = new MedicationIntake(
+                11L, "test month", "test day of month", "Tuesday",
+                "med 11", 0.11, 110,
+                "med 11", 11, 0.1111,
+                "something", 11);
+        MedicationIntake testIntake12 = new MedicationIntake(
+                12L, "test month", "test day of month", "Wednesday",
+                "med 22", 0.12, 120,
+                "med 22", 12, 0.1212,
+                "something", 12);
+        List<MedicationIntake> listMedicationIntake = new ArrayList<>();
+        listMedicationIntake.add(testIntake10);
+        listMedicationIntake.add(testIntake11);
+        listMedicationIntake.add(testIntake12);
+
+        List<MedicationIntakeDto> starterIntakeDtoList = List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
+        listMedicationIntake.forEach(
+                testIntake -> testRestTemplate.postForObject(baseUrl + "/add", testIntake, MedicationIntakeDto.class));
+        testRestTemplate.delete(baseUrl + "/del/" + testIntake10.getId());
+        List<MedicationIntakeDto> remainingIntakeDtoList = List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
+        int sizeDifference = remainingIntakeDtoList.size() - starterIntakeDtoList.size();
+
+        listMedicationIntake.remove(testIntake10);
+        assertEquals(listMedicationIntake.size(), sizeDifference);
+        for (int i = 0; i < listMedicationIntake.size(); i++) {
+            assertEquals(listMedicationIntake.get(i).getDay(), remainingIntakeDtoList.get(i + starterIntakeDtoList.size()).getDay());
+        }
+    }
 
 }
