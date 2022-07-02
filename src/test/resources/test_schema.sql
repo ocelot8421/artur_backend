@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS `db_intakes_diary`.`test_medication_intake_db`;
+DROP TABLE IF EXISTS `test_db_intakes_diary`.`medication_intake`;
 
-CREATE TABLE `db_intakes_diary`.`test_medication_intake_db` (
+CREATE TABLE `test_db_intakes_diary`.`medication_intake` (
   `id` bigint(20) NOT NULL,
   `month` varchar(45) DEFAULT NULL,
   `time` varchar(255) DEFAULT NULL,
@@ -15,3 +15,4 @@ CREATE TABLE `db_intakes_diary`.`test_medication_intake_db` (
   `dose03` double NOT NULL,
   PRIMARY KEY (`id`)
   );
+

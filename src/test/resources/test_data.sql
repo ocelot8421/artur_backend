@@ -1,4 +1,4 @@
-INSERT INTO `test_medication_intake_db` (
+INSERT INTO `medication_intake` (
     id,
     month,
     time,
@@ -14,10 +14,10 @@ INSERT INTO `test_medication_intake_db` (
 )
 VALUES
   (1, '07.', '04.', 'Monday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
-  (2, '07.', '05.', 'Tuesday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
+--  (2, '07.', '05.', 'Tuesday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
   (3, '07.', '06.', 'Wednesday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
-  (4, '07.', '07.', 'Thursday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
+--  (4, '07.', '07.', 'Thursday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
   (5, '07.', '08.', 'Friday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
-  (6, '07.', '09.', 'Saturday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
+--  (6, '07.', '09.', 'Saturday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0),
   (7, '07.', '10.', 'Sunday', 'Pill01', 2, 100, 'Pill02', 2, 0.5, null, 0);
 

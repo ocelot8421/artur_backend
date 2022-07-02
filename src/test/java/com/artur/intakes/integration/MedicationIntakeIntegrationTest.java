@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @ActiveProfiles("test")
-//@Sql(scripts = "classpath:/deleteTestRow.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@Sql(scripts = {"classpath:/test_schema.sql", "classpath:/test_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class MedicationIntakeIntegrationTest { //TODO separate the test database from the used
 
     @LocalServerPort
@@ -28,7 +28,6 @@ public class MedicationIntakeIntegrationTest { //TODO separate the test database
 
     private String baseUrl;
 
-    @SuppressWarnings("unused")
     @Autowired
     private TestRestTemplate testRestTemplate;
 
@@ -37,12 +36,11 @@ public class MedicationIntakeIntegrationTest { //TODO separate the test database
         this.baseUrl = "http://localhost:" + port + "/intakes";
     }
 
-    @Sql(scripts = {"classpath:/test_schema.sql", "classpath:/test_datas.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Test
     public void retrieveAllIntakes_returnTheBasicWeek() {
         MedicationIntakeDto[] mondayToSunDay = testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class);
         for (MedicationIntakeDto medicationIntakeDto : mondayToSunDay) {
-            System.out.println(medicationIntakeDto + " kkk");
+            System.out.println(medicationIntakeDto + " searching test data");
         }
         assertEquals(4, mondayToSunDay.length);
     }
@@ -56,7 +54,6 @@ public class MedicationIntakeIntegrationTest { //TODO separate the test database
                 "med 1", 0.123, 123,
                 "med 2", 0.456, 456,
                 null, 0);
-
         MedicationIntakeDto testIntakeDto =
                 testRestTemplate.postForObject(baseUrl + "/add", testIntake, MedicationIntakeDto.class);
         MedicationIntakeDto testIntakeDtoResult =

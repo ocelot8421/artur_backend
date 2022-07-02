@@ -4,6 +4,7 @@ import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.model.MedicationIntake;
 import com.artur.intakes.repositories.MedicationIntakeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.jdbc.Sql;
 
 import java.util.stream.Collectors;
 
