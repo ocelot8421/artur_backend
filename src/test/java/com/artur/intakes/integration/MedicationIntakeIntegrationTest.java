@@ -1,7 +1,7 @@
 package com.artur.intakes.integration;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
-import com.artur.intakes.model.MedicationIntake;
+import com.artur.intakes.entity.MedicationIntake;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 @Sql(scripts = {"classpath:/test_schema.sql", "classpath:/test_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-public class MedicationIntakeIntegrationTest { //TODO separate the test database from the used
+public class MedicationIntakeIntegrationTest {
 
     @LocalServerPort
     private int port;

@@ -1,6 +1,6 @@
 package com.artur.intakes.dto;
 
-import com.artur.intakes.model.MedicationIntake;
+import com.artur.intakes.entity.MedicationIntake;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
