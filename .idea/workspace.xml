@@ -7,31 +7,17 @@
     <option name="autoscrollToSource" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961c9c9a-4067-4743-ad97-217f6a20ee06" name="Changes" comment="20220702 1737 laptop">
-      <change afterPath="$PROJECT_DIR$/CodeReadingNote_20220703090622.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/repositories/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/service/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/configuration/IntakeJpaConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/MedicationIntakeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/MedicationIntakeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/MedicationIntakeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/MedicationIntakeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/model/MedicationIntake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/MedicationIntake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/repositories/MedicationIntakeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/repositories/MedicationIntakeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/service/MedicationIntakeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/service/MedicationIntakeService.java" afterDir="false" />
+    <list default="true" id="961c9c9a-4067-4743-ad97-217f6a20ee06" name="Changes" comment="20220704 1945 laptop">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/SignUpDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/artur/intakes/integration/MedicationIntakeIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/artur/intakes/integration/MedicationIntakeIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/artur/intakes/keepCalm/testKeepCalm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/artur/intakes/unit/MedicationIntakeUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/artur/intakes/unit/MedicationIntakeUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/deleteTestRow.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/deleteTestRow.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +65,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../baeldung" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -200,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656776282181</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="20220704 1945 laptop">
+      <created>1656956744106</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656956744106</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,7 +210,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test database is separated" />
     <MESSAGE value="20220702 1737 laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220702 1737 laptop" />
+    <MESSAGE value="20220704 1945 laptop" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220704 1945 laptop" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
