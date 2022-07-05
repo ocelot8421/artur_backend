@@ -3,9 +3,7 @@ package com.artur.intakes.config;
 import com.artur.intakes.entity.Role;
 import com.artur.intakes.entity.User;
 import com.artur.intakes.service.CustomUserDetailsService;
-import org.h2.engine.UserBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,8 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
 
 @EnableWebSecurity
@@ -28,7 +24,8 @@ import java.util.Set;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private CustomUserDetailsService userDetailsService;
+//    private CustomUserDetailsService userDetailsService;
+    private CustomUserDetailsService customUserDetailsService;
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -50,26 +47,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService)
+        auth.userDetailsService(customUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
 
-    @Override
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        UserDetails happyUser = (UserDetails) User
-                .builder()
-                .username("happyUser")
-                .password(passwordEncoder().encode("password"))
-                .roles(Set.of(new Role(1L, "USER")))
-                .build();
-        UserDetails admin = (UserDetails) User
-                .builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles(Set.of(new Role(2L, "ADMIN")))
-                .build();
-        return new InMemoryUserDetailsManager(happyUser, admin);
-    }
+//    @Override
+//    @Bean
+//    protected UserDetailsService userDetailsService() {
+//        UserDetails happyUser = User
+//                .builder()
+//                .username("happyUser")
+//                .password(passwordEncoder().encode("password"))
+//                .roles(Set.of())
+//                .build();
+//        UserDetails admin = () User
+//                .builder()
+//                .username("admin")
+//                .password(passwordEncoder().encode("admin"))
+//                .roles(Set.of())
+//                .build();
+//        return new InMemoryUserDetailsManager(happyUser, admin);
+//    }
 
 }

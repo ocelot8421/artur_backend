@@ -7,15 +7,10 @@
     <option name="autoscrollToSource" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961c9c9a-4067-4743-ad97-217f6a20ee06" name="Changes" comment="20220704 1945 laptop">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/LoginDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/dto/SignUpDto.java" afterDir="false" />
+    <list default="true" id="961c9c9a-4067-4743-ad97-217f6a20ee06" name="Changes" comment="20220705 0113 laptop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/artur/intakes/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
@@ -193,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656956744106</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="20220705 0113 laptop">
+      <created>1656976423410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656976423410</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +213,8 @@
     <MESSAGE value="test database is separated" />
     <MESSAGE value="20220702 1737 laptop" />
     <MESSAGE value="20220704 1945 laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220704 1945 laptop" />
+    <MESSAGE value="20220705 0113 laptop" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220705 0113 laptop" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
