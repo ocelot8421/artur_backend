@@ -18,13 +18,13 @@
 ```
 # 1)  Operations on MedicationIntakes
 
-| Operation                    | description                                 |
-|------------------------------|---------------------------------------------|
+| Operation                  | description                                 |
+|----------------------------|---------------------------------------------|
 | GET    /intakes/allIntakes 	 | Retrieve all MedicationIntake from the DB.  |
-| GET    /intakes/get/{id}     | Retrieve a MdicationIntake.                 |
-| PUT    /intakes/put/{id}     | UPDATE  a MdicationIntake DATA /JSON/       |
-| POST   /intakes/add 		       | ADD a new MedicationIntake series via JSON. |
-| DELETE /intakes/del/{id}     | DELETE a MdicationIntake by ID.             |
+| GET    /intakes/get/{id}   | Retrieve a MdicationIntake.                 |
+| PUT    /intakes/put/{id}   | UPDATE  a MdicationIntake DATA /JSON/       |
+| POST   /intakes/add 		     | ADD a new MedicationIntake series via JSON. |
+| DELETE /intakes/del/{id}   | DELETE a MdicationIntake by ID.             |
 
 # UML
 ```mermaid
