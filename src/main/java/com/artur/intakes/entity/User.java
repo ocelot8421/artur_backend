@@ -1,5 +1,6 @@
 package com.artur.intakes.entity;
 
+import com.artur.intakes.dto.RoleDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,5 +37,6 @@ public class User {
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Set<Role> roles;
+//    private Set<RoleDto> roles;
+    private String role;
 }
