@@ -28,6 +28,7 @@ public class MedicationIntakeTest {
 
     private String baseUrl;
 
+
     @Autowired
     private TestRestTemplate testRestTemplate;
 
