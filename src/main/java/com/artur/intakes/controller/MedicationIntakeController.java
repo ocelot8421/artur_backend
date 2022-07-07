@@ -1,13 +1,11 @@
 package com.artur.intakes.controller;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
-import com.artur.intakes.model.MedicationIntake;
+import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.service.MedicationIntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Locale;
 
 @RestController
 @RequestMapping(path = "/intakes")

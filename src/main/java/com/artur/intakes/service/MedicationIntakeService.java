@@ -1,18 +1,17 @@
 package com.artur.intakes.service;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
-import com.artur.intakes.model.MedicationIntake;
+import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.repositories.MedicationIntakeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class MedicationIntakeService {
 
+    @Autowired
     private MedicationIntakeRepository medicationIntakeRepository;
 
     public MedicationIntakeService(MedicationIntakeRepository medicationIntakeRepository) {

@@ -1,22 +1,18 @@
 package com.artur.intakes.integration;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
-import com.artur.intakes.model.MedicationIntake;
-import org.junit.jupiter.api.AfterEach;
+import com.artur.intakes.entity.MedicationIntake;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @ActiveProfiles("test")
-@Sql(scripts = "classpath:/deleteTestRow.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@Sql(scripts = {"classpath:/test_schema.sql", "classpath:/test_data.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class MedicationIntakeTest {
 
     @LocalServerPort
@@ -40,11 +36,13 @@ public class MedicationIntakeTest {
         this.baseUrl = "http://localhost:" + port + "/intakes";
     }
 
-
     @Test
     public void retrieveAllIntakes_returnTheBasicWeek() {
         MedicationIntakeDto[] mondayToSunDay = testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class);
-        assertEquals(7, mondayToSunDay.length);
+        for (MedicationIntakeDto medicationIntakeDto : mondayToSunDay) {
+            System.out.println(medicationIntakeDto + " searching test data");
+        }
+        assertEquals(4, mondayToSunDay.length);
     }
 
 

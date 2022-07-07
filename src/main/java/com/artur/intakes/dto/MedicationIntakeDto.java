@@ -1,6 +1,6 @@
 package com.artur.intakes.dto;
 
-import com.artur.intakes.model.MedicationIntake;
+import com.artur.intakes.entity.MedicationIntake;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,19 +35,19 @@ public class MedicationIntakeDto {
         pieces02 = medicationIntake.getPieces02();
     }
 
-    @Override
-    public String toString() {
-        return "MedicationIntakeDto{" +
-                "id=" + id +
-                ", month='" + month + '\'' +
-                ", time='" + time + '\'' +
-                ", day='" + day + '\'' +
-                ", medicine01='" + medicine01 + '\'' +
-                ", pieces01=" + pieces01 +
-                ", dose01=" + dose01 +
-                ", medicine02='" + medicine02 + '\'' +
-                ", dose02=" + dose02 +
-                ", pieces02=" + pieces02 +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "MedicationIntakeDto{" +
+//                "id=" + id +
+//                ", month='" + month + '\'' +
+//                ", time='" + time + '\'' +
+//                ", day='" + day + '\'' +
+//                ", medicine01='" + medicine01 + '\'' +
+//                ", pieces01=" + pieces01 +
+//                ", dose01=" + dose01 +
+//                ", medicine02='" + medicine02 + '\'' +
+//                ", dose02=" + dose02 +
+//                ", pieces02=" + pieces02 +
+//                '}';
+//    }
 }
