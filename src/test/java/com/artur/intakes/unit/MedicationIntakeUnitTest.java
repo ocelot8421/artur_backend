@@ -3,15 +3,13 @@ package com.artur.intakes.unit;
 import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.entity.User;
-import com.artur.intakes.repositories.MedicationIntakeRepository;
 import com.artur.intakes.service.MedicationIntakeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -25,7 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-//@WebMvcTest
 public class MedicationIntakeUnitTest {
     private static User user1;
     private static User user2;
@@ -37,10 +34,7 @@ public class MedicationIntakeUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Mock
-    private  MedicationIntakeRepository medicationIntakeRepository;
-
-    @InjectMocks
+    @MockBean
     private MedicationIntakeService service;
 
     @BeforeEach
@@ -80,6 +74,7 @@ public class MedicationIntakeUnitTest {
 
     @Test
     public void findAll_returnListOfMedicationIntakes() throws Exception {
+
         when(service.retrieveAllIntakes())
                 .thenReturn(List.of(medicationIntakeDto1, medicationIntakeDto2));
 
@@ -88,7 +83,6 @@ public class MedicationIntakeUnitTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[1].id", is(2)));
-
 
     }
 

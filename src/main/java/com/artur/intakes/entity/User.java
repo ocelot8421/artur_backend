@@ -6,10 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
-
-@Entity  //JPA Entity
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,20 +20,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-//    private String firstname;
-//    private String lastname;
     private String name;
-
     private String username;
     private String email;
-    private String password; //TODO password ???
-
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "user_roles",
-//            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-////    private Set<RoleDto> roles;
-    private String role;
+    private String password;
+        private String role;
 }
