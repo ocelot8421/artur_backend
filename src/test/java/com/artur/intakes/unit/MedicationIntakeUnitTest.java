@@ -1,25 +1,31 @@
 package com.artur.intakes.unit;
 
-import com.artur.intakes.controller.MedicationIntakeController;
-import com.artur.intakes.dto.*;
-import com.artur.intakes.entity.*;
+import com.artur.intakes.dto.MedicationIntakeDto;
+import com.artur.intakes.entity.MedicationIntake;
+import com.artur.intakes.entity.User;
+import com.artur.intakes.repositories.MedicationIntakeRepository;
 import com.artur.intakes.service.MedicationIntakeService;
-import com.artur.intakes.service.RoleService;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(MedicationIntakeController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+//@WebMvcTest
 public class MedicationIntakeUnitTest {
     private static User user1;
     private static User user2;
@@ -31,15 +37,14 @@ public class MedicationIntakeUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private MedicationIntakeService service;
+    @Mock
+    private  MedicationIntakeRepository medicationIntakeRepository;
 
-    @MockBean
-    private RoleService roleService;
+    @InjectMocks
+    private MedicationIntakeService service;
 
     @BeforeEach
     public void setup() {
-        RoleDto roledto = roleService.retrieveRoleByName("ROLE_ADMIN");
 
         user1 = User.builder()
                 .id(1L)
@@ -74,17 +79,18 @@ public class MedicationIntakeUnitTest {
     }
 
     @Test
-    public void findAll_returnListOfMedicationIntakes() throws Exception{
+    public void findAll_returnListOfMedicationIntakes() throws Exception {
         when(service.retrieveAllIntakes())
                 .thenReturn(List.of(medicationIntakeDto1, medicationIntakeDto2));
 
         mockMvc.perform(get("/intakes/allIntakes"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1L)))
-                .andExpect(jsonPath("$.month", is("03.")));
-
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[1].id", is(2)));
 
 
     }
 
 }
+

@@ -54,6 +54,7 @@ public class MedicationIntakeIntegrationTest {
                 "med 1", 0.123, 123,
                 "med 2", 0.456, 456,
                 null, 0);
+
         MedicationIntakeDto testIntakeDto =
                 testRestTemplate.postForObject(baseUrl + "/add", testIntake, MedicationIntakeDto.class);
         MedicationIntakeDto testIntakeDtoResult =
