@@ -1,5 +1,6 @@
 package com.artur.intakes.unit;
 
+import com.artur.intakes.controller.MedicationIntakeController;
 import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.entity.User;
@@ -11,7 +12,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -19,6 +22,7 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -26,8 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-//@WebMvcTest
-@ActiveProfiles("unit-test")
+//@WebMvcTest(MedicationIntakeController.class)
+//@ActiveProfiles("unit-test")
 public class MedicationIntakeUnitTest {
     private static User user1;
     private static User user2;
@@ -39,10 +43,15 @@ public class MedicationIntakeUnitTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Mock
-    private  MedicationIntakeRepository medicationIntakeRepository;
-
-    @InjectMocks
+//    @Mock
+//    private MedicationIntakeRepository medicationIntakeRepository;
+////    private  MedicationIntakeRepository medicationIntakeRepository = mock(MedicationIntakeRepository.class);
+//
+//    @InjectMocks
+//    private MedicationIntakeService service;
+//
+////    private MedicationIntakeService service = new MedicationIntakeService(medicationIntakeRepository);
+    @MockBean
     private MedicationIntakeService service;
 
     @BeforeEach
@@ -82,6 +91,7 @@ public class MedicationIntakeUnitTest {
 
     @Test
     public void findAll_returnListOfMedicationIntakes() throws Exception {
+
         when(service.retrieveAllIntakes())
                 .thenReturn(List.of(medicationIntakeDto1, medicationIntakeDto2));
 
@@ -90,7 +100,6 @@ public class MedicationIntakeUnitTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[1].id", is(2)));
-
 
     }
 

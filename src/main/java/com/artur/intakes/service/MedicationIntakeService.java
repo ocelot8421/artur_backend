@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
+import java.util.List;
+
 
 @Service
 public class MedicationIntakeService {
@@ -18,7 +20,7 @@ public class MedicationIntakeService {
         this.medicationIntakeRepository = medicationIntakeRepository;
     }
 
-    public Iterable<MedicationIntakeDto> retrieveAllIntakes() {
+    public List<MedicationIntakeDto> retrieveAllIntakes() {
         return medicationIntakeRepository
                 .findAll()
                 .stream()
