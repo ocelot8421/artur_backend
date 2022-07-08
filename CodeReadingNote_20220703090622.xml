@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topics>
+    <topic>
+        <name>unit teszt - origins</name>
+        <note/>
+        <updatedAt>2022-07-03 07:10:18</updatedAt>
+        <topicLines>
+            <topicLine>
+                <line>2</line>
+                <inProject>true</inProject>
+                <url>
+                    file://C:/Code/myProjects/artur/artur_backend/src/test/java/com/artur/intakes/unit/MedicationIntakeUnitTest.java
+                </url>
+                <note>
+                    public class MedicationIntakeUnitTest {
+                    -------
+                    language school - vizsgaremek - codecool
+                </note>
+                <relativePath>src/test/java/com/artur/intakes/unit/MedicationIntakeUnitTest.java</relativePath>
+            </topicLine>
+        </topicLines>
+    </topic>
+</topics>
+
