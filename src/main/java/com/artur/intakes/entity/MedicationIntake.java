@@ -19,7 +19,7 @@ public class MedicationIntake {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String month;
-    private String time;
+    private String time; //TODO date
     private String day;
     private String medicine01;
     private double pieces01;
