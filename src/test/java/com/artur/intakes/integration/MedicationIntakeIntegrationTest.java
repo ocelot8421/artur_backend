@@ -45,7 +45,6 @@ public class MedicationIntakeIntegrationTest {
         assertEquals(4, mondayToSunDay.length);
     }
 
-
     @Test
     public void retrieveIntakeById_returnIntakeWithTheSameMedication() {
 

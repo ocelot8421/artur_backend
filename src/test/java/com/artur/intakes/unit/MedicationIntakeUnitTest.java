@@ -72,6 +72,7 @@ public class MedicationIntakeUnitTest {
         medicationIntakeDto2 = new MedicationIntakeDto(medicationIntake2);
     }
 
+
     @Test
     public void findAll_returnListOfMedicationIntakes() throws Exception {
 
