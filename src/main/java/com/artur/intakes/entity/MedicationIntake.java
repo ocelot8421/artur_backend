@@ -29,22 +29,4 @@ public class MedicationIntake {
     private double pieces02;
     private String medicine03;
     private double dose03;
-
-    @Override
-    public String toString() {
-        return "MedicationIntake{" +
-                "id=" + id +
-                ", month='" + month + '\'' +
-                ", time='" + time + '\'' +
-                ", day='" + day + '\'' +
-                ", medicine01='" + medicine01 + '\'' +
-                ", pieces01=" + pieces01 +
-                ", dose01=" + dose01 +
-                ", medicine02='" + medicine02 + '\'' +
-                ", dose02=" + dose02 +
-                ", pieces02=" + pieces02 +
-                ", medicine03='" + medicine03 + '\'' +
-                ", dose03=" + dose03 +
-                '}';
-    }
 }

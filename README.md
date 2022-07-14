@@ -1,6 +1,6 @@
 ```
                
-                                                                                             s                                
+                                                                                                                            
                                          :8                                
                            .u    .      .88       x.    .        .u    .   
                   u      .d88B :@8c    :888ooo  .@88k  z88u    .d88B :@8c  
@@ -27,54 +27,57 @@
 | DELETE /intakes/del/{id}   | DELETE a MdicationIntake by ID.             |
 
 # UML
+IntelliJ IDEA properties to appear the diagram: <br />
+settings / Languages&Frameworks / Markdown / Markdown extensions; check/install Mermaid
 
 ```mermaid
 classDiagram
 
-MedicationIntakeDto o-- MedicationIntake
+MedicationDiary o-- User
+MedicationDiary o-- MedicationIntake
+MedicationIntake o-- Medicine
+MedicationOfWeek o-- MedicationIntake
+Envelope .. MedicationOfWeek : sessionStored JSON via frontend
+MedicationIntake o-- Time
+Time o-- Day
+
+User : Long id
+User : String name
+User : String passwordSecured
+
+Medicine : Long id
+Medicine : String name
+Medicine : double mgPerPill
+
+Time : Day day
+Time : Hour hour
+
+Day : Date dayOfMonth
+Day : String dayOfWeek
+
+MedicationIntake : Long id
+MedicationIntake : Time time
+MedicationIntake : Medicine medicine
+MedicationIntake : double mgPerIntake
+MedicationIntake : numberOfPieces()
+
+MedicationOfWeek : Long id
+MedicationOfWeek : String year
+MedicationOfWeek : String month
+MedicationOfWeek : String dayOfMonth
+MedicationOfWeek : String dayOfWeek
+MedicationOfWeek : List MedicationIntakes
+MedicationOfWeek : getMedicineName()
+MedicationOfWeek : getMgPerPill()
+MedicationOfWeek : getMgPerIntake()
+MedicationOfWeek : getPieces()
+
+MedicationDiary : Long id
+MedicationDiary : Time time
+MedicationDiary : List medicationIntakes
+
 
 ```
-
-
-
-[//]: # (# &#40;UML markers - training&#41;)
-
-[//]: # (```mermaid)
-
-[//]: # (classDiagram)
-
-[//]: # ()
-[//]: # (MedicationIntakeDto o-- MedicationIntake)
-
-[//]: # ()
-[//]: # (Class01 <|-- AveryLongClass : Cool)
-
-[//]: # (Class03 *-- Class04)
-
-[//]: # (Class05 o-- Class06)
-
-[//]: # (Class07 .. Class08)
-
-[//]: # (Class09 --> C2 : Where am i?)
-
-[//]: # (Class09 --* C3)
-
-[//]: # (Class09 --|> Class07)
-
-[//]: # (Class07 : equals&#40;&#41;)
-
-[//]: # (Class07 : Object[] elementData)
-
-[//]: # (Class01 : size&#40;&#41;)
-
-[//]: # (Class01 : int chimp)
-
-[//]: # (Class01 : int gorilla)
-
-[//]: # (Class08 <--> C2: Cool label)
-
-[//]: # ()
-[//]: # (```)
 
 
        
