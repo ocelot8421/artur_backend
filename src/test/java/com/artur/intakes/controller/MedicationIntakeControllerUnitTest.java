@@ -1,4 +1,4 @@
-package com.artur.intakes.unit;
+package com.artur.intakes.controller;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.entity.MedicationIntake;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MedicationIntakeUnitTest {
+public class MedicationIntakeControllerUnitTest {
     private static User user1;
     private static User user2;
     private static MedicationIntake medicationIntake1;

@@ -1,7 +1,6 @@
-package com.artur.intakes.integration;
+package com.artur.intakes.entity;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
-import com.artur.intakes.entity.MedicationIntake;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
