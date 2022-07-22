@@ -104,11 +104,16 @@ public class MedicationIntakeIntegrationTest {
         listMedicationIntake.add(testIntake11);
         listMedicationIntake.add(testIntake12);
 
-        List<MedicationIntakeDto> starterIntakeDtoList = List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
+        List<MedicationIntakeDto> starterIntakeDtoList =
+                List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
         listMedicationIntake.forEach(
-                testIntake -> testRestTemplate.postForObject(baseUrl + "/add", testIntake, MedicationIntakeDto.class));
+                testIntake -> testRestTemplate.postForObject(
+                        baseUrl + "/add", testIntake, MedicationIntakeDto.class
+                )
+        );
         testRestTemplate.delete(baseUrl + "/del/" + testIntake10.getId());
-        List<MedicationIntakeDto> remainingIntakeDtoList = List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
+        List<MedicationIntakeDto> remainingIntakeDtoList =
+                List.of(testRestTemplate.getForObject(baseUrl + "/allIntakes", MedicationIntakeDto[].class));
         int sizeDifference = remainingIntakeDtoList.size() - starterIntakeDtoList.size();
 
         listMedicationIntake.remove(testIntake10);
