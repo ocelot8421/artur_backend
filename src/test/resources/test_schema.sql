@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `test2_db`.`medication_intake`;
+--DROP TABLE IF EXISTS `test2_db`.`medication_intake`;
 
 CREATE TABLE `test2_db`.`medication_intake` (
   `id` bigint(20) NOT NULL,

@@ -11,12 +11,16 @@ import lombok.NoArgsConstructor;
 public class MedicationIntakeDto {
 
     private Long id;
+    private String year;
     private String month;
     private String time;
     private String day;
+    private String timeOfDay01;
+
     private String medicine01;
     private double pieces01;
     private double dose01;
+
     private String medicine02;
     private double dose02;
     private double pieces02;
@@ -24,12 +28,16 @@ public class MedicationIntakeDto {
 
     public MedicationIntakeDto(MedicationIntake medicationIntake) {
         id = medicationIntake.getId();
+        year = medicationIntake.getYear();
         month = medicationIntake.getMonth();
         time = medicationIntake.getTime();
         day = medicationIntake.getDay();
+        timeOfDay01 = medicationIntake.getTimeOfDay01();
+
         medicine01 = medicationIntake.getMedicine01();
         pieces01 = medicationIntake.getPieces01();
         dose01 = medicationIntake.getDose01();
+
         medicine02 = medicationIntake.getMedicine02();
         dose02 = medicationIntake.getDose02();
         pieces02 = medicationIntake.getPieces02();

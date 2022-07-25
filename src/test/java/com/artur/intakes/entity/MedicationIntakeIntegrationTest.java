@@ -48,7 +48,7 @@ public class MedicationIntakeIntegrationTest {
     public void retrieveIntakeById_returnIntakeWithTheSameMedication() {
 
         MedicationIntake testIntake = new MedicationIntake(
-                8L, "test month", "test day of month", "test day of week",
+                8L, "2022", "test month", "test day of month", "test day of week", "evening",
                 "med 1", 0.123, 123,
                 "med 2", 0.456, 456,
                 null, 0);
@@ -63,16 +63,16 @@ public class MedicationIntakeIntegrationTest {
     @Test
     public void updateIntakeById_returnIntakeWithUpdatedMedication() {
         MedicationIntake testIntake = new MedicationIntake(
-                9L, "test month", "test day of month", "test day of week",
-                "med 1", 0.123, 123,
-                "med 2", 0.456, 456,
+                9L,"2022", "test month", "test day of month", "test day of week",
+                "morning", "med 1", 0.123, 123,
+                 "med 2", 0.456, 456,
                 null, 0);
 
         MedicationIntakeDto testIntakeDto =
                 testRestTemplate.postForObject(baseUrl + "/add", testIntake, MedicationIntakeDto.class);
         MedicationIntake testIntakeModified = new MedicationIntake(
-                testIntakeDto.getId(), "test month", "test day of month", "test day of week",
-                "changed med", 0.123, 123,
+                testIntakeDto.getId(), "2022", "test month", "test day of month", "test day of week",
+                "every hour", "changed med", 0.123, 123,
                 "med 2", 0.456, 456,
                 null, 0);
         testRestTemplate.put(baseUrl + "/put/" + testIntakeDto.getId(), testIntakeModified);
@@ -85,17 +85,17 @@ public class MedicationIntakeIntegrationTest {
     @Test
     public void deleteIntakeById_returnListWithRemainingIntakes() {
         MedicationIntake testIntake10 = new MedicationIntake(
-                10L, "test month", "test day of month", "Monday",
+                10L, "2022", "test month", "test day of month", "Monday", "evening",
                 "med 10", 0.10, 100,
                 "med 10", 10, 0.1010,
                 "something", 10);
         MedicationIntake testIntake11 = new MedicationIntake(
-                11L, "test month", "test day of month", "Tuesday",
+                11L, "2022", "test month", "test day of month", "Tuesday", "morning",
                 "med 11", 0.11, 110,
                 "med 11", 11, 0.1111,
                 "something", 11);
         MedicationIntake testIntake12 = new MedicationIntake(
-                12L, "test month", "test day of month", "Wednesday",
+                12L,"2022", "test month", "test day of month", "Wednesday", "noon",
                 "med 22", 0.12, 120,
                 "med 22", 12, 0.1212,
                 "something", 12);
