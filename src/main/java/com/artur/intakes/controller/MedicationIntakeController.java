@@ -2,6 +2,7 @@ package com.artur.intakes.controller;
 
 import com.artur.intakes.dto.MedicationIntakeDto;
 import com.artur.intakes.entity.MedicationIntake;
+import com.artur.intakes.entity.TimeOfMedication;
 import com.artur.intakes.service.MedicationIntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -29,27 +30,28 @@ public class MedicationIntakeController {
         return medicationIntakeService.retrieveIntakeById(id);
     }
 
-
     //    http://localhost:8080/intakes/add
     @PostMapping(path = "/add",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     @CrossOrigin
-    public MedicationIntakeDto addNewIntake(@RequestBody MedicationIntake medicationIntake) {
-        return medicationIntakeService.createAndUpdateIntake(medicationIntake);
+    public MedicationIntakeDto addNewIntake(
+            @RequestBody MedicationIntake medicationIntake,
+            @RequestBody TimeOfMedication timeOfMedication) {
+        return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
     }
-
 
     //    http://localhost:8080/intakes/put/{id}
     @PutMapping(path = "/put/{id}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin
-    public MedicationIntakeDto changeIntake(@RequestBody MedicationIntake medicationIntake) {
-        return medicationIntakeService.createAndUpdateIntake(medicationIntake);
+    public MedicationIntakeDto changeIntake(
+            @RequestBody MedicationIntake medicationIntake,
+            @RequestBody TimeOfMedication timeOfMedication) {
+        return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
     }
-
 
     //     http://localhost:8080/intakes/del/{id}
     @DeleteMapping(path = "/del/{id}",

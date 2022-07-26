@@ -1,9 +1,15 @@
 package com.artur.intakes.dto;
 
 import com.artur.intakes.entity.MedicationIntake;
+import com.artur.intakes.entity.Medicine;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor
@@ -11,11 +17,19 @@ import lombok.NoArgsConstructor;
 public class MedicationIntakeDto {
 
     private Long id;
+
     private String year;
     private String month;
-    private String time;
-    private String day;
-    private String timeOfDay01;
+    private String dayOfMonth;
+    private String dayOfWeek;
+    private String timeOfDay;
+
+//    @NotNull
+//    private Medicine medicine;
+
+//    private String time;
+//    private String day;
+//    private String timeOfDay01;
 
     private String medicine01;
     private double pieces01;
@@ -25,16 +39,20 @@ public class MedicationIntakeDto {
     private double dose02;
     private double pieces02;
 
-
     public MedicationIntakeDto(MedicationIntake medicationIntake) {
         id = medicationIntake.getId();
-        year = medicationIntake.getYear();
-        month = medicationIntake.getMonth();
-        time = medicationIntake.getTime();
-        day = medicationIntake.getDay();
-        timeOfDay01 = medicationIntake.getTimeOfDay01();
 
-        medicine01 = medicationIntake.getMedicine01();
+        year = medicationIntake.getTimeOfMedication().getYear();
+        month = medicationIntake.getTimeOfMedication().getMonth();
+        dayOfMonth = medicationIntake.getTimeOfMedication().getDayOfMonth();
+        dayOfWeek = medicationIntake.getTimeOfMedication().getDayOfWeek();
+        timeOfDay = medicationIntake.getTimeOfMedication().getTimeOfDay();
+
+//        medicines = medicationIntake.getMedicineSet();
+//        System.out.println("gyógyszerek: ");
+//        medicines.forEach(System. out::println);
+
+//        medicine01 = medicationIntake.getMedicineList();
         pieces01 = medicationIntake.getPieces01();
         dose01 = medicationIntake.getDose01();
 
@@ -42,20 +60,4 @@ public class MedicationIntakeDto {
         dose02 = medicationIntake.getDose02();
         pieces02 = medicationIntake.getPieces02();
     }
-
-//    @Override
-//    public String toString() {
-//        return "MedicationIntakeDto{" +
-//                "id=" + id +
-//                ", month='" + month + '\'' +
-//                ", time='" + time + '\'' +
-//                ", day='" + day + '\'' +
-//                ", medicine01='" + medicine01 + '\'' +
-//                ", pieces01=" + pieces01 +
-//                ", dose01=" + dose01 +
-//                ", medicine02='" + medicine02 + '\'' +
-//                ", dose02=" + dose02 +
-//                ", pieces02=" + pieces02 +
-//                '}';
-//    }
 }
