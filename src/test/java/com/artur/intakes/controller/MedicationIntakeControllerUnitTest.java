@@ -1,6 +1,6 @@
 package com.artur.intakes.controller;
 
-import com.artur.intakes.dto.MedicationIntakeDto;
+import com.artur.intakes.dto.MedicationIntakeDTO;
 import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.entity.User;
 import com.artur.intakes.service.MedicationIntakeService;
@@ -27,8 +27,8 @@ public class MedicationIntakeControllerUnitTest {
     private static User user2;
     private static MedicationIntake medicationIntake1;
     private static MedicationIntake medicationIntake2;
-    private MedicationIntakeDto medicationIntakeDto1;
-    private MedicationIntakeDto medicationIntakeDto2;
+    private MedicationIntakeDTO medicationIntakeDTO1;
+    private MedicationIntakeDTO medicationIntakeDTO2;
 
     @Autowired
     private MockMvc mockMvc;
@@ -58,17 +58,17 @@ public class MedicationIntakeControllerUnitTest {
                 .build();
 
         medicationIntake1 = MedicationIntake.builder()
-                .id(1L).month("03.").time("13.").day("day off")
+                .id(1L).time("13.").day("day off")
                 .medicine01("Med1").pieces01(1).dose01(15)
                 .build();
 
         medicationIntake2 = MedicationIntake.builder()
-                .id(2L).month("03.").time("14.").day("nex day")
+                .id(2L).time("14.").day("nex day")
                 .medicine02("Med2").pieces02(3).dose02(10)
                 .build();
 
-        medicationIntakeDto1 = new MedicationIntakeDto(medicationIntake1);
-        medicationIntakeDto2 = new MedicationIntakeDto(medicationIntake2);
+        medicationIntakeDTO1 = new MedicationIntakeDTO(medicationIntake1);
+        medicationIntakeDTO2 = new MedicationIntakeDTO(medicationIntake2);
     }
 
 
@@ -76,7 +76,7 @@ public class MedicationIntakeControllerUnitTest {
     public void findAll_returnListOfMedicationIntakes() throws Exception {
 
         when(service.retrieveAllIntakes())
-                .thenReturn(List.of(medicationIntakeDto1, medicationIntakeDto2));
+                .thenReturn(List.of(medicationIntakeDTO1, medicationIntakeDTO2));
 
         mockMvc.perform(get("/intakes/allIntakes"))
                 .andExpect(status().isOk())

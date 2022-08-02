@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,4 +28,5 @@ public class TimeOfMedication {
     private String dayOfMonth;
     private String dayOfWeek;
     private String timeOfDay;
+    private String hour;
 }

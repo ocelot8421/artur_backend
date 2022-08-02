@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,17 +24,16 @@ public class MedicationIntake {
     @OneToOne
     private TimeOfMedication timeOfMedication;
 
-//    @ManyToMany
-//    private List<Medicine> medicineList;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "intake_medicine",
+            joinColumns = @JoinColumn(name= "intake_id"),
+            inverseJoinColumns = @JoinColumn(name = "medicine_id")
+    )
+    private Set<Medicine> medicines = new HashSet<>();
 
-    @ManyToMany
-    private Set<Medicine> medicineSet;
-
-    private String year;
-    private String month;
     private String time;
     private String day;
-    private String timeOfDay01;
 
     private String medicine01;
     private double pieces01;
@@ -43,25 +43,4 @@ public class MedicationIntake {
     private double dose02;
     private double pieces02;
 
-    private String medicine03;
-    private double dose03;
-
-
-    //    @Override
-//    public String toString() {
-//        return "MedicationIntake{" +
-//                "id=" + id +
-//                ", month='" + month + '\'' +
-//                ", time='" + time + '\'' +
-//                ", day='" + day + '\'' +
-//                ", medicine01='" + medicine01 + '\'' +
-//                ", pieces01=" + pieces01 +
-//                ", dose01=" + dose01 +
-//                ", medicine02='" + medicine02 + '\'' +
-//                ", dose02=" + dose02 +
-//                ", pieces02=" + pieces02 +
-//                ", medicine03='" + medicine03 + '\'' +
-//                ", dose03=" + dose03 +
-//                '}';
-//    }
 }
