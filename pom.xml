@@ -116,7 +116,10 @@
 <!--            <groupId>javax.validation</groupId>-->
 <!--            <artifactId>validation-api</artifactId>-->
 <!--        </dependency>-->
-
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.datatype</groupId>-->
+<!--            <artifactId>jackson-datatype-hibernate5</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>

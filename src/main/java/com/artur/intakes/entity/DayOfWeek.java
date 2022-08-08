@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,21 +13,18 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TimeOfMedication {
+public class DayOfWeek {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "date")
-    private Set<MedicationIntake> medicationIntake;
+    @Column(length = 45)
+    private String dayEng;
 
-    private String year;
-    private String month;
-    private String dayOfMonth;
+    @Column(length = 45)
+    private String dayHu;
 
-
-
-    private String timeOfDay; //daily cycle
-    private String hour; //daily cycle
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "dayOfWeek")
+    private Set<MedicationIntake> intakes;
 }

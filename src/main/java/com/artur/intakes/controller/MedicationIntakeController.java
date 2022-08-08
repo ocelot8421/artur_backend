@@ -38,7 +38,8 @@ public class MedicationIntakeController {
     @CrossOrigin
     public MedicationIntakeDTO addNewIntake(
             @RequestBody MedicationIntake medicationIntake,
-            @RequestBody TimeOfMedication timeOfMedication) {
+            @RequestBody TimeOfMedication timeOfMedication
+    ) {
         return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
     }
 
@@ -49,7 +50,8 @@ public class MedicationIntakeController {
     @CrossOrigin
     public MedicationIntakeDTO changeIntake(
             @RequestBody MedicationIntake medicationIntake,
-            @RequestBody TimeOfMedication timeOfMedication) {
+            @RequestBody TimeOfMedication timeOfMedication
+    ) {
         return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
     }
 

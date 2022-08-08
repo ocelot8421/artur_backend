@@ -58,13 +58,11 @@ public class MedicationIntakeControllerUnitTest {
                 .build();
 
         medicationIntake1 = MedicationIntake.builder()
-                .id(1L).time("13.").day("day off")
-                .medicine01("Med1").pieces01(1).dose01(15)
+                .id(1L)
                 .build();
 
         medicationIntake2 = MedicationIntake.builder()
-                .id(2L).time("14.").day("nex day")
-                .medicine02("Med2").pieces02(3).dose02(10)
+                .id(2L)
                 .build();
 
         medicationIntakeDTO1 = new MedicationIntakeDTO(medicationIntake1);

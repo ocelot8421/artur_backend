@@ -1,14 +1,12 @@
 package com.artur.intakes.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,19 +23,19 @@ public class Medicine {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "dose", nullable = true)
+    @Column(name = "dose")
     private double dose;
 
-    @Column(name = "unit", nullable = true, length = 10)
+    @Column(name = "unit", length = 10)
     private String unit;
 
-    @Column(name = "pieces", nullable = true)
+    @Column(name = "pieces")
     private double pieces;
 
-    @Column(name = "piecesUnit", nullable = true, length = 25)
+    @Column(name = "piecesUnit", length = 25)
     private String piecesUnit;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine")
+//    @JsonBackReference
     private Set<MedicationIntake> intakes;
 }

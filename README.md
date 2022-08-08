@@ -36,45 +36,12 @@ classDiagram
 MedicationDiary o-- User
 MedicationDiary o-- MedicationIntake
 MedicationIntake o-- Medicine
-MedicationOfWeek o-- MedicationIntake
-Envelope .. MedicationOfWeek : sessionStored JSON via frontend
-MedicationIntake o-- Time
-Time o-- Day
+MedicationIntake o-- TimeOfDay
+MedicationDTO o-- MedicationIntake
+Envelope .. MedicationDTO : sessionStored JSON via frontend
+MedicationIntake o-- Date
 
-User : Long id
-User : String name
-User : String passwordSecured
 
-Medicine : Long id
-Medicine : String name
-Medicine : double mgPerPill
-
-Time : Day day
-Time : Hour hour
-
-Day : Date dayOfMonth
-Day : String dayOfWeek
-
-MedicationIntake : Long id
-MedicationIntake : Time time
-MedicationIntake : Medicine medicine
-MedicationIntake : double mgPerIntake
-MedicationIntake : numberOfPieces()
-
-MedicationOfWeek : Long id
-MedicationOfWeek : String year
-MedicationOfWeek : String month
-MedicationOfWeek : String dayOfMonth
-MedicationOfWeek : String dayOfWeek
-MedicationOfWeek : List MedicationIntakes
-MedicationOfWeek : getMedicineName()
-MedicationOfWeek : getMgPerPill()
-MedicationOfWeek : getMgPerIntake()
-MedicationOfWeek : getPieces()
-
-MedicationDiary : Long id
-MedicationDiary : Time time
-MedicationDiary : List medicationIntakes
 
 
 ```

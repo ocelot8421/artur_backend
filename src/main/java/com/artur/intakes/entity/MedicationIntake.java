@@ -1,14 +1,12 @@
 package com.artur.intakes.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -21,26 +19,19 @@ public class MedicationIntake {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    private TimeOfMedication timeOfMedication;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "day_of_week_id")
+    private DayOfWeek dayOfWeek;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "intake_medicine",
-            joinColumns = @JoinColumn(name= "intake_id"),
-            inverseJoinColumns = @JoinColumn(name = "medicine_id")
-    )
-    private Set<Medicine> medicines = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "date_id")
+    private TimeOfMedication date;
 
-    private String time;
-    private String day;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "time_of_day_id")
+    private DailyCycle timeOfDay;
 
-    private String medicine01;
-    private double pieces01;
-    private double dose01;
-
-    private String medicine02;
-    private double dose02;
-    private double pieces02;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "medicine_id")
+    private Medicine medicine;
 }

@@ -7,6 +7,7 @@ import com.artur.intakes.repositories.MedicationIntakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.List;
 
@@ -17,6 +18,9 @@ public class MedicationIntakeService {
     @Autowired
     private MedicationIntakeRepository medicationIntakeRepository;
 
+    @Autowired
+    private MedicineService medicineService;
+
     public MedicationIntakeService(MedicationIntakeRepository medicationIntakeRepository) {
         this.medicationIntakeRepository = medicationIntakeRepository;
     }
@@ -26,6 +30,7 @@ public class MedicationIntakeService {
                 .findAll()
                 .stream()
                 .map(MedicationIntakeDTO::new)
+//                .map(intake -> intake.setMedicineDTOList(medicineService.retrieveAllMedicineByIntakeIds(intake)))
                 .collect(Collectors.toList());
     }
 
@@ -45,7 +50,5 @@ public class MedicationIntakeService {
     public void eraseIntake(Long id) {
         medicationIntakeRepository.deleteById(id);
     }
-
-
 
 }
