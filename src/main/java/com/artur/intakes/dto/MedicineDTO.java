@@ -1,7 +1,5 @@
 package com.artur.intakes.dto;
 
-import com.artur.intakes.entity.DailyCycle;
-import com.artur.intakes.entity.DayOfWeek;
 import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.entity.Medicine;
 import lombok.AllArgsConstructor;
@@ -14,35 +12,21 @@ import lombok.NoArgsConstructor;
 public class MedicineDTO {
 
     private Long id;
-
-    private Long dayOfWeekId;
-    private String dayOfWeekHu;
-    private String dayOfWeekEng;
-
-    private Long timeOfDayId;
-    private String timeOfDayHu;
-    private String timeOfDayEng;
-
+    private Long idCheck;
+    private Long idTime;
     private String medicineName;
     private double dose;
     private String unit;
     private double pieces;
     private String piecesUnit;
 
-    public MedicineDTO(MedicationIntake medicationIntake){
-        id = medicationIntake.getMedicine().getId();
-
-        DayOfWeek dayOfWeek = medicationIntake.getDayOfWeek();
-        dayOfWeekId = dayOfWeek.getId();
-        dayOfWeekHu = dayOfWeek.getDayHu();
-        dayOfWeekEng = dayOfWeek.getDayEng();
-
-        DailyCycle timeOfDay = medicationIntake.getTimeOfDay();
-        timeOfDayId = timeOfDay.getId();
-        timeOfDayHu = timeOfDay.getTimeOfDayHu();
-        timeOfDayEng = timeOfDay.getTimeOfDayEng();
-
-        Medicine medicine = medicationIntake.getMedicine();
+    public MedicineDTO(MedicationIntake intake) {
+        Long s = intake.getDayOfWeek().getId() *1000 +
+                intake.getTimeOfDay().getId() *100;
+        Medicine medicine = intake.getMedicine();
+        id = intake.getMedicine().getId();
+        idCheck = s + id;
+        idTime = s;
         medicineName = medicine.getName();
         dose = medicine.getDose();
         unit = medicine.getUnit();

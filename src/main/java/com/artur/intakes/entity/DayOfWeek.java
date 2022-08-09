@@ -13,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "table_day_of_week")
 public class DayOfWeek {
 
     @Id

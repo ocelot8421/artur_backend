@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "table_medicine")
 public class Medicine {
 
     @Id
@@ -36,6 +37,5 @@ public class Medicine {
     private String piecesUnit;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "medicine")
-//    @JsonBackReference
     private Set<MedicationIntake> intakes;
 }

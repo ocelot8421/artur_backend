@@ -1,6 +1,5 @@
 package com.artur.intakes.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "join_table_medication_intake")
 public class MedicationIntake {
 
     @Id
@@ -25,11 +25,11 @@ public class MedicationIntake {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "date_id")
-    private TimeOfMedication date;
+    private Date date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "time_of_day_id")
-    private DailyCycle timeOfDay;
+    private TimeOfDay timeOfDay;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicine_id")

@@ -3,7 +3,8 @@ package com.artur.intakes.service;
 import com.artur.intakes.dto.DayOfWeekDTO;
 import com.artur.intakes.dto.MedicationIntakeDTO;
 import com.artur.intakes.dto.MedicineDTO;
-import com.artur.intakes.entity.*;
+import com.artur.intakes.dto.TimeOfDayDTO;
+import com.artur.intakes.entity.MedicationIntake;
 import com.artur.intakes.repositories.MedicationIntakeRepository;
 import com.artur.intakes.repositories.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,33 +23,65 @@ public class MedicineService {
     @Autowired
     private MedicationIntakeRepository medicationIntakeRepository;
 
-    public MedicineService(MedicineRepository medicineRepository){
+    public MedicineService(MedicineRepository medicineRepository) {
         this.medicineRepository = medicineRepository;
     }
 
-    //TODO
-    public List<MedicineDTO> retrieveAllMedicineByIntakeIds(MedicationIntakeDTO intake){
-        return medicationIntakeRepository
-                .findAll()
-                .stream()
-                .filter(c -> c.getDayOfWeek().getId() == intake.getDayOfWeekId()
-                && c.getTimeOfDay().getId() == intake.getTimeOfDayId())
-                .map(MedicineDTO::new)
-                .collect(Collectors.toList());
-    }
-
     public Iterable<DayOfWeekDTO> retrieveGroupedMedicines() {
-        List<DayOfWeekDTO> dayOfWeekList = new ArrayList<>();
-        List<Object> timeOfDay = new ArrayList<>();
-        List<Object> medicines = new ArrayList<>();
+        List<DayOfWeekDTO> dayOfWeekDTOList = new ArrayList<>();
+        List<Long> checkDayOfWeekDTOList = new ArrayList<>();
+        List<TimeOfDayDTO> timeOfDayDTOList = new ArrayList<>();
+        List<Long> checkTimeOfDayDTOList = new ArrayList<>();
+        List<MedicineDTO> medicineDTOList = new ArrayList<>();
+        List<Long> checkMedicineDTOList = new ArrayList<>();
 
         for (MedicationIntake intake : (medicationIntakeRepository.findAll())) {
+            DayOfWeekDTO dayOfWeekDTO = new DayOfWeekDTO(intake);
+            Long idCheckDayOfWeekDTO = dayOfWeekDTO.getIdCheck();
+            if (!checkDayOfWeekDTOList.contains(idCheckDayOfWeekDTO)) {
+                checkDayOfWeekDTOList.add(idCheckDayOfWeekDTO);
+                dayOfWeekDTOList.add(dayOfWeekDTO);
+            }
+            System.out.println("-- dayOfWeek:");
+            System.out.println(checkDayOfWeekDTOList);
+            System.out.println(dayOfWeekDTOList);
 
-            DayOfWeekDTO day = new DayOfWeekDTO(intake);
-            if(!dayOfWeekList.contains(day))
-            dayOfWeekList.add(day);
+            TimeOfDayDTO timeOfDayDTO = new TimeOfDayDTO(intake);
+            Long idCheckTimeOfDayDTO = timeOfDayDTO.getIdCheck();
+            if (!checkTimeOfDayDTOList.contains(idCheckTimeOfDayDTO)) {
+                checkTimeOfDayDTOList.add(idCheckTimeOfDayDTO);
+                timeOfDayDTOList.add(timeOfDayDTO);
+            }
+            System.out.println("-- timeOfDay:");
+            System.out.println(checkTimeOfDayDTOList);
+            System.out.println(timeOfDayDTOList);
 
+            MedicineDTO medicineDTO = new MedicineDTO(intake);
+            Long idCheckMedicineDTO = medicineDTO.getIdCheck();
+            if (!checkMedicineDTOList.contains(idCheckMedicineDTO)) {
+                checkMedicineDTOList.add(idCheckMedicineDTO);
+                medicineDTOList.add(medicineDTO);
+            }
+            System.out.println("-- medicine:");
+            System.out.println(checkMedicineDTOList);
+            System.out.println(medicineDTOList);
         }
-        return dayOfWeekList;
+        for (MedicineDTO medicineDTO : medicineDTOList) {
+            for (TimeOfDayDTO timeOfDayDTO : timeOfDayDTOList) {
+                if (medicineDTO.getIdTime().longValue() == timeOfDayDTO.getIdCheck().longValue()) {
+                    timeOfDayDTO.getMedicineDTOs().add(medicineDTO);
+                }
+            }
+        }
+        for (TimeOfDayDTO timeOfDayDTO : timeOfDayDTOList) {
+            for (DayOfWeekDTO dayOfWeekDTO : dayOfWeekDTOList) {
+                if (timeOfDayDTO.getIdDay().longValue() == dayOfWeekDTO.getIdCheck().longValue()) {
+                    dayOfWeekDTO.getTimeOfDayDTOs().add(timeOfDayDTO);
+                }
+            }
+        }
+        return dayOfWeekDTOList;
     }
 }
+
+

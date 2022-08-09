@@ -1,18 +1,15 @@
 package com.artur.intakes.dto;
 
-import com.artur.intakes.entity.DailyCycle;
+import com.artur.intakes.entity.TimeOfDay;
 import com.artur.intakes.entity.DayOfWeek;
 import com.artur.intakes.entity.MedicationIntake;
-import com.artur.intakes.entity.TimeOfMedication;
-import com.artur.intakes.service.MedicineService;
+import com.artur.intakes.entity.Date;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @NoArgsConstructor
@@ -34,24 +31,24 @@ public class MedicationIntakeDTO {
     private String dayOfMonth;
 
     private MedicineDTO medicineDTO;
-    private List<MedicineDTO> medicineDTOList = new ArrayList<>();
+    private Set<MedicineDTO> medicineDTOs = new HashSet<>();
 
     public MedicationIntakeDTO(MedicationIntake medicationIntake) {
 
-        TimeOfMedication timeOfMedication = medicationIntake.getDate();
+        Date date = medicationIntake.getDate();
 
         id = medicationIntake.getId();
 
-        year = timeOfMedication.getYear();
-        month = timeOfMedication.getMonth();
-        dayOfMonth = timeOfMedication.getDayOfMonth();
+        year = date.getYear();
+        month = date.getMonth();
+        dayOfMonth = date.getDayOfMonth();
 
         DayOfWeek dayOfWeek = medicationIntake.getDayOfWeek();
         dayOfWeekId = dayOfWeek.getId();
         dayOfWeekHu = dayOfWeek.getDayHu();
 //        dayOfWeekEng = dayOfWeek.getDayEng();
 
-        DailyCycle timeOfDay = medicationIntake.getTimeOfDay();
+        TimeOfDay timeOfDay = medicationIntake.getTimeOfDay();
         timeOfDayId = timeOfDay.getId();
         timeOfDayHu = timeOfDay.getTimeOfDayHu();
 //        timeOfDayEng = timeOfDay.getTimeOfDayEng();

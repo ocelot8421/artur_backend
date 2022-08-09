@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,7 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TimeOfMedication {
+@Table(name = "table_date")
+public class Date {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +26,4 @@ public class TimeOfMedication {
     private String year;
     private String month;
     private String dayOfMonth;
-
-
-
-    private String timeOfDay; //daily cycle
-    private String hour; //daily cycle
 }

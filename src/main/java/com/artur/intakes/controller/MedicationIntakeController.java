@@ -2,7 +2,7 @@ package com.artur.intakes.controller;
 
 import com.artur.intakes.dto.MedicationIntakeDTO;
 import com.artur.intakes.entity.MedicationIntake;
-import com.artur.intakes.entity.TimeOfMedication;
+import com.artur.intakes.entity.Date;
 import com.artur.intakes.service.MedicationIntakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -38,9 +38,9 @@ public class MedicationIntakeController {
     @CrossOrigin
     public MedicationIntakeDTO addNewIntake(
             @RequestBody MedicationIntake medicationIntake,
-            @RequestBody TimeOfMedication timeOfMedication
+            @RequestBody Date date
     ) {
-        return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
+        return medicationIntakeService.createAndUpdateIntake(medicationIntake, date);
     }
 
     //    http://localhost:8080/intakes/put/{id}
@@ -50,9 +50,9 @@ public class MedicationIntakeController {
     @CrossOrigin
     public MedicationIntakeDTO changeIntake(
             @RequestBody MedicationIntake medicationIntake,
-            @RequestBody TimeOfMedication timeOfMedication
+            @RequestBody Date date
     ) {
-        return medicationIntakeService.createAndUpdateIntake(medicationIntake, timeOfMedication);
+        return medicationIntakeService.createAndUpdateIntake(medicationIntake, date);
     }
 
     //     http://localhost:8080/intakes/del/{id}

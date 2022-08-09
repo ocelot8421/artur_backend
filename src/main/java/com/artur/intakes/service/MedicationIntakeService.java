@@ -2,12 +2,11 @@ package com.artur.intakes.service;
 
 import com.artur.intakes.dto.MedicationIntakeDTO;
 import com.artur.intakes.entity.MedicationIntake;
-import com.artur.intakes.entity.TimeOfMedication;
+import com.artur.intakes.entity.Date;
 import com.artur.intakes.repositories.MedicationIntakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class MedicationIntakeService {
         return new MedicationIntakeDTO(intake);
     }
 
-    public MedicationIntakeDTO createAndUpdateIntake(MedicationIntake medicationIntake, TimeOfMedication timeOfMedication) {
+    public MedicationIntakeDTO createAndUpdateIntake(MedicationIntake medicationIntake, Date date) {
         MedicationIntake intake = medicationIntakeRepository.save(medicationIntake);
         return new MedicationIntakeDTO(intake);
     }
