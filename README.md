@@ -1,6 +1,6 @@
 ```
                
-                                                                                             s                                
+                                                                                                                            
                                          :8                                
                            .u    .      .88       x.    .        .u    .   
                   u      .d88B :@8c    :888ooo  .@88k  z88u    .d88B :@8c  
@@ -18,15 +18,37 @@
 ```
 # 1)  Operations on MedicationIntakes
 
-| Operation                    | description                                 |
-|------------------------------|---------------------------------------------|
+| Operation                  | description                                 |
+|----------------------------|---------------------------------------------|
 | GET    /intakes/allIntakes 	 | Retrieve all MedicationIntake from the DB.  |
-| GET    /intakes/get/{id}     | Retrieve a MdicationIntake.                 |
-| PUT    /intakes/put/{id}     | UPDATE  a MdicationIntake DATA /JSON/       |
-| POST   /intakes/add 		       | ADD a new MedicationIntake series via JSON. |
-| DELETE /intakes/del/{id}     | DELETE a MdicationIntake by ID.             |
+| GET    /intakes/get/{id}   | Retrieve a MdicationIntake.                 |
+| PUT    /intakes/put/{id}   | UPDATE  a MdicationIntake DATA /JSON/       |
+| POST   /intakes/add 		     | ADD a new MedicationIntake series via JSON. |
+| DELETE /intakes/del/{id}   | DELETE a MdicationIntake by ID.             |
 
 # UML
+IntelliJ IDEA properties to appear the diagram: <br />
+settings / Languages&Frameworks / Markdown / Markdown extensions; check/install Mermaid
+
+```mermaid
+classDiagram
+
+MedicationDiary o-- User
+MedicationDiary o-- MedicationIntake
+MedicationIntake o-- Medicine
+MedicationIntake o-- TimeOfDay
+MedicationDTO o-- MedicationIntake
+Envelope .. MedicationDTO : sessionStored JSON via frontend
+MedicationIntake o-- Date
+
+
+
+
+```
+
+
+
+# (UML markers - training)
 ```mermaid
 classDiagram
 

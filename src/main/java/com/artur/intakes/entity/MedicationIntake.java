@@ -5,46 +5,33 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "join_table_medication_intake")
 public class MedicationIntake {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String month;
-    private String time;
-    private String day;
-    private String medicine01;
-    private double pieces01;
-    private double dose01;
-    private String medicine02;
-    private double dose02;
-    private double pieces02;
-    private String medicine03;
-    private double dose03;
 
-    @Override
-    public String toString() {
-        return "MedicationIntake{" +
-                "id=" + id +
-                ", month='" + month + '\'' +
-                ", time='" + time + '\'' +
-                ", day='" + day + '\'' +
-                ", medicine01='" + medicine01 + '\'' +
-                ", pieces01=" + pieces01 +
-                ", dose01=" + dose01 +
-                ", medicine02='" + medicine02 + '\'' +
-                ", dose02=" + dose02 +
-                ", pieces02=" + pieces02 +
-                ", medicine03='" + medicine03 + '\'' +
-                ", dose03=" + dose03 +
-                '}';
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "day_of_week_id")
+    private DayOfWeek dayOfWeek;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "date_id")
+    private Date date;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "time_of_day_id")
+    private TimeOfDay timeOfDay;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "medicine_id")
+    private Medicine medicine;
 }
