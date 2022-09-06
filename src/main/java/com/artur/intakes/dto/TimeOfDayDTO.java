@@ -34,4 +34,17 @@ public class TimeOfDayDTO {
         timeOfDayEng = timeOfDay.getTimeOfDayEng();
         hour = timeOfDay.getHour();
     }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "    TimeOfDayDTO{" + "\n" +
+                "       id=" + id + "\n" +
+                "       idCheck=" + idCheck + "\n" +
+                "       idDay=" + idDay + "\n" +
+                "       timeOfDayHu='" + timeOfDayHu + '\'' + "\n" +
+                "       timeOfDayEng='" + timeOfDayEng + '\'' + "\n" +
+                "       hour='" + hour + '\'' + "\n" +
+                "       medicineDTOs=" + medicineDTOs + '}' + "\n";
+    }
 }

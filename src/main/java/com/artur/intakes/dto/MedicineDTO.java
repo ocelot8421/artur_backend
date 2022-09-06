@@ -21,8 +21,8 @@ public class MedicineDTO {
     private String piecesUnit;
 
     public MedicineDTO(MedicationIntake intake) {
-        Long s = intake.getDayOfWeek().getId() *1000 +
-                intake.getTimeOfDay().getId() *100;
+        Long s = intake.getDayOfWeek().getId() * 1000 +
+                intake.getTimeOfDay().getId() * 100;
         Medicine medicine = intake.getMedicine();
         id = intake.getMedicine().getId();
         idCheck = s + id;
@@ -32,5 +32,19 @@ public class MedicineDTO {
         unit = medicine.getUnit();
         pieces = medicine.getPieces();
         piecesUnit = medicine.getPiecesUnit();
+    }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "        MedicineDTO{" + "\n" +
+                "           id=" + id + "\n" +
+                "           idCheck=" + idCheck + "\n" +
+                "           idTime=" + idTime + "\n" +
+                "           medicineName='" + medicineName + '\'' + "\n" +
+                "           dose=" + dose + "\n" +
+                "           unit='" + unit + '\'' + "\n" +
+                "           pieces=" + pieces + "\n" +
+                "           piecesUnit='" + piecesUnit + '\'' + '}';
     }
 }
