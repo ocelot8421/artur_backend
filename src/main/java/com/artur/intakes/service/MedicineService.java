@@ -84,8 +84,9 @@ public class MedicineService {
         date.setId(connection.getDate());
         TimeOfDay timeOfDay = new TimeOfDay();
         timeOfDay.setId(connection.getTimeOfDay());
-        Medicine medicine = new Medicine();
-        medicine.setId(connection.getMedicine());
+//        Medicine medicine = new Medicine();
+//        medicine.setId(connection.getMedicine());
+        Medicine medicine = connection.getMedicine();
 
         System.out.println("connection:"); // put -----------------------------
         System.out.println(connection);

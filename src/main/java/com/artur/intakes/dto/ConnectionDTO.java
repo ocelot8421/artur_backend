@@ -13,15 +13,17 @@ public class ConnectionDTO {
     private Long id;
     private Long dayOfWeek;
     private Long date;
-    private Long medicine;
+//    private Long medicine;
     private Long timeOfDay;
+    private Medicine medicine;
 
-    public ConnectionDTO(Long id, Long dayOfWeek, Long date, Long medicine, Long timeOfDay) {
+    public ConnectionDTO(Long id, Long dayOfWeek, Long date, Long timeOfDay, Medicine medicine) {
         this.id = id;
         this.dayOfWeek = dayOfWeek;
         this.date = date;
-        this.medicine = medicine;
+//        this.medicine = medicine;
         this.timeOfDay = timeOfDay;
+        this.medicine = medicine;
     }
 
     @Override
@@ -30,8 +32,8 @@ public class ConnectionDTO {
                 "id=" + id +
                 ", dayOfWeek=" + dayOfWeek +
                 ", date=" + date +
-                ", medicine='" + medicine + '\'' +
                 ", timeOfDay=" + timeOfDay +
+                ", medicine=" + medicine +
                 '}';
     }
 }
