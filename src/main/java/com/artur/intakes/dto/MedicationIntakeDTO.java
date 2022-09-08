@@ -20,11 +20,11 @@ public class MedicationIntakeDTO {
 
     private Long dayOfWeekId;
     private String dayOfWeekHu;
-//    private String dayOfWeekEng;
+    private String dayOfWeekEng;
 
     private Long timeOfDayId;
     private String timeOfDayHu;
-//    private String timeOfDayEng;
+    private String timeOfDayEng;
 
     private String year;
     private String month;
@@ -46,13 +46,31 @@ public class MedicationIntakeDTO {
         DayOfWeek dayOfWeek = medicationIntake.getDayOfWeek();
         dayOfWeekId = dayOfWeek.getId();
         dayOfWeekHu = dayOfWeek.getDayHu();
-//        dayOfWeekEng = dayOfWeek.getDayEng();
+        dayOfWeekEng = dayOfWeek.getDayEng();
 
         TimeOfDay timeOfDay = medicationIntake.getTimeOfDay();
         timeOfDayId = timeOfDay.getId();
         timeOfDayHu = timeOfDay.getTimeOfDayHu();
-//        timeOfDayEng = timeOfDay.getTimeOfDayEng();
+        timeOfDayEng = timeOfDay.getTimeOfDayEng(); // put ------------------
 
         medicineDTO = new MedicineDTO(medicationIntake);
+    }
+
+    @Override
+    public String toString() {
+        return "MedicationIntakeDTO{" +
+                "id=" + id +
+                ", dayOfWeekId=" + dayOfWeekId +
+                ", dayOfWeekHu='" + dayOfWeekHu + '\'' +
+                ", dayOfWeekEng='" + dayOfWeekEng + '\'' +
+                ", timeOfDayId=" + timeOfDayId +
+                ", timeOfDayHu='" + timeOfDayHu + '\'' +
+                ", timeOfDayEng='" + timeOfDayEng + '\'' +
+                ", year='" + year + '\'' +
+                ", month='" + month + '\'' +
+                ", dayOfMonth='" + dayOfMonth + '\'' +
+                ", medicineDTO=" + medicineDTO +
+                ", medicineDTOs=" + medicineDTOs +
+                '}';
     }
 }

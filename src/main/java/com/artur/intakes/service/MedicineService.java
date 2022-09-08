@@ -1,11 +1,8 @@
 package com.artur.intakes.service;
 
-import com.artur.intakes.dto.DayOfWeekDTO;
-import com.artur.intakes.dto.MedicineDTO;
-import com.artur.intakes.dto.TimeOfDayDTO;
-import com.artur.intakes.entity.MedicationIntake;
-import com.artur.intakes.repositories.MedicationIntakeRepository;
-import com.artur.intakes.repositories.MedicineRepository;
+import com.artur.intakes.dto.*;
+import com.artur.intakes.entity.*;
+import com.artur.intakes.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +11,9 @@ import java.util.List;
 
 @Service
 public class MedicineService {
+
+    @Autowired
+    private DayOfWeekService dayOfWeekService;
 
     @Autowired
     private MedicineRepository medicineRepository;
@@ -72,6 +72,33 @@ public class MedicineService {
 
     public void eraseIntake(Long checkID) {
         medicationIntakeRepository.deleteById(checkID);
+    }
+
+//    public MedicationIntakeDTO createAndUpdateIntake(ConnectionDTO connection) {
+    public void createAndUpdateIntake(ConnectionDTO connection) {
+        MedicationIntake medicationIntake = new MedicationIntake();
+        medicationIntake.setId(connection.getId());
+        DayOfWeek dayOfWeek = dayOfWeekService.retrieveDayOfWeek(connection);
+
+        Date date = new Date();
+        date.setId(connection.getDate());
+        TimeOfDay timeOfDay = new TimeOfDay();
+        timeOfDay.setId(connection.getTimeOfDay());
+        Medicine medicine = new Medicine();
+        medicine.setId(connection.getMedicine());
+
+        System.out.println("connection:"); // put -----------------------------
+        System.out.println(connection);
+//        System.out.println(dayOfWeekService.retrieveDayOfWeek(connection));
+
+        medicationIntake.setDayOfWeek(dayOfWeek);
+        medicationIntake.setDate(date);
+        medicationIntake.setTimeOfDay(timeOfDay);
+        medicationIntake.setMedicine(medicine);
+        System.out.println(medicationIntake);
+
+        MedicationIntake intake = medicationIntakeRepository.save(medicationIntake);
+//        return new MedicationIntakeDTO(intake);
     }
 }
 

@@ -1,7 +1,7 @@
 package com.artur.intakes.controller;
 
+import com.artur.intakes.dto.ConnectionDTO;
 import com.artur.intakes.dto.DayOfWeekDTO;
-import com.artur.intakes.dto.MedicationIntakeDTO;
 import com.artur.intakes.service.MedicationIntakeService;
 import com.artur.intakes.service.MedicineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,19 @@ public class MedicineController {
     public @ResponseBody
     Iterable<DayOfWeekDTO> getMedicines(){
         return medicineService.retrieveGroupedMedicines();
+    }
+
+    //    http://localhost:8080/intakes/put/{id}
+    @PutMapping(path = "/put/{id}",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+//    public MedicationIntakeDTO changeIntake(
+    public void changeIntake(
+            @RequestBody ConnectionDTO connection
+    ) {
+//        return medicineService.createAndUpdateIntake(connection);
+        medicineService.createAndUpdateIntake(connection);
     }
 
     //     http://localhost:8080/medicines/del/{id}

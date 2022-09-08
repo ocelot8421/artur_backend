@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class MedicationIntake {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -34,4 +34,24 @@ public class MedicationIntake {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medicine_id")
     private Medicine medicine;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setTimeOfDay(TimeOfDay timeOfDay) {
+        this.timeOfDay = timeOfDay;
+    }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
+    }
 }
