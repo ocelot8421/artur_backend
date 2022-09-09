@@ -86,9 +86,14 @@ public class MedicineService {
         timeOfDay.setId(connection.getTimeOfDay());
 
         Long medicineID = retrieveMedicineID(connection.getMedicine());
-        Medicine medicine = new Medicine();
-        medicine.setId(medicineID);
-
+        Medicine medicineInput = new Medicine();
+        if (!Objects.equals(medicineID, NEW_MED_MARKER_ID)) {
+            medicineInput.setId(medicineID);
+        } else {
+           Medicine medNewRow = medicineRepository.save(connection.getMedicine());
+           medicineID = medNewRow.getId();
+           medicineInput.setId(medicineID);
+        }
         System.out.println("connection:"); // put -----------------------------
         System.out.println(connection);
 //        System.out.println(dayOfWeekService.retrieveDayOfWeek(connection));
@@ -96,7 +101,7 @@ public class MedicineService {
         medicationIntake.setDayOfWeek(dayOfWeek);
         medicationIntake.setDate(date);
         medicationIntake.setTimeOfDay(timeOfDay);
-        medicationIntake.setMedicine(medicine);
+        medicationIntake.setMedicine(medicineInput);
         medicationIntake.setId(connection.getId() - NEW_MED_MARKER_ID + medicineID);
 
         System.out.println(medicationIntake);
