@@ -120,6 +120,8 @@ public class MedicineService {
             if (Objects.equals(aMedicine.getName(), medName)
                     && aMedicine.getDose() == medicine.getDose()
                     && aMedicine.getPieces() == medicine.getPieces()
+                    && Objects.equals(aMedicine.getUnit(), medicine.getUnit())
+                    && Objects.equals(aMedicine.getPiecesUnit(), medicine.getPiecesUnit())
             ) {
                 System.out.println(aMedicine.getId());
                 System.out.println(aMedicine.getName());
